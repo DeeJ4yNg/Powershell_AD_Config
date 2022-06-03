@@ -1,8 +1,3 @@
-$GLOBAL:PackageName = "Batch Enable AD Computers"
-$GLOBAL:criptRoot = Split-Path -Path $MyInvocation.MyCommand.Definition -parent
-$global:LastExitCode 
-."$criptRoot\Support.ps1"
-$objShell = New-Object -ComObject Shell.Application
 Import-Module ActiveDirectory
 
 function Read-OpenFileDialog([string]$WindowTitle, [string]$InitialDirectory, [string]$Filter = "All files (*.*)|*.*", [switch]$AllowMultiSelect)
@@ -28,7 +23,7 @@ function Read-FolderBrowserDialog([string]$Message, [string]$InitialDirectory)
 [System.Reflection.Assembly]::LoadWithPartialName('Microsoft.VisualBasic') | Out-Null
 [System.Reflection.Assembly]::LoadWithPartialName("System.Windows.Forms")
 
-$New_Description = "Missing security patches and restrict logon to"
+$New_Description = "xxx"
 
 $content3 = Get-Content -Path $selected_file3
 $content3 -is [Array]
@@ -45,8 +40,6 @@ $DiagResult3 = [windows.forms.messagebox]::show("Ticket Number file:`n$selected_
 Start-Sleep -Milliseconds 300	
 if ($DiagResult -eq	[Windows.Forms.DialogResult]::Cancel)
 {
-	IW-LogEntry "User Cancel pics tidy up"
-	IW-LogEntry "End Main program."
 	Exit 99
 }
 
